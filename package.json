@@ -1,8 +1,12 @@
 {
   "name": "note_taker",
   "version": "1.0.0",
-  "description": "Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file",
+  "description": "Application that allows users to take and save notes",
   "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -16,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/alsricha/wk11-Note-Taker/issues"
   },
-  "homepage": "https://github.com/alsricha/wk11-Note-Taker#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/alsricha/wk11-Note-Taker#readme"
 }
