@@ -1,23 +1,22 @@
-// LOAD DATA
 
-var noteArray = require("../db/db.json");
+// Loading Data 
+// =============================================================
+const Notes = require('../data/notes')
 
-// ROUTING
-module.exports = function (app) {
+// API GET Requests 
+// =============================================================
 
-  // API GET Requests
+module.exports = function(app){
 
+    app.get("/api/notes", (req, res) => {
+        Notes.getAllNotes().then(notes => res.json(notes)).catch(err => res.status(500).json(err)) 
+    })
 
-  app.get("/api/notes", function (req, res) {
-    res.json(noteArray);
-  });
-  console.log(noteArray);
-  // API POST Requests
+    app.post("/api/notes", (req, res) =>{
+        Notes.addNote(req.body).then(note => res.json(note)).catch(err => res.status(500).json(err))
+    })
 
-  app.post("/api/notes", function (req, res) {
-  
-  });
-
-  app.delete("/api/notes", function (req, res) {
-  });
-};
+    app.delete("/api/notes/:id", (req, res) =>{
+        Notes.removeNote(req.params.id).then(() => res.json({ ok: true })).catch(err => res.status(500).json(err))
+    })
+}
