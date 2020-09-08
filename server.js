@@ -28,4 +28,4 @@ app.listen(PORT, function () {
 //========================================================
 
 require("./routes/apiRoutes")(app);
-require("./routes/hmtlRoutes")(app);
+require("./routes/htmlRoutes")(app);
