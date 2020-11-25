@@ -2,6 +2,7 @@
 //=======================================================
 
 var express = require("express");
+var path = require("path")
 
 // Sets up Express App
 //=======================================================
@@ -15,7 +16,9 @@ app.use(express.urlencoded({ extended: true}));
 
 app.use(express.json());
 
-app.use(express.static('public'));
+//app.use(express.static('public'));
+process.env.PWD = process.cwd()
+app.use(express.static(path.join(process.env.PWD,'public')));
 
 //Routes
 //========================================================
